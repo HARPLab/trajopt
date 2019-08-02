@@ -43,7 +43,7 @@ void CollisionChecker::IgnoreSelfCollisions(OpenRAVE::KinBodyPtr body) {
   const std::vector<KinBody::LinkPtr>& links = body->GetLinks();
 
   // Copy self-collision link information from the kinbody.
-  const std::set<int> &non_adjacent_links = body->GetNonAdjacentLinks(0);
+  const std::vector<int> &non_adjacent_links = body->GetNonAdjacentLinks(0);
   BOOST_FOREACH(int link_pair, non_adjacent_links) {
     int const i = ((link_pair >> 0) & 0xFFFF);
     int const j = ((link_pair >> 16) & 0xFFFF);
